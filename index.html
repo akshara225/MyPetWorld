@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyPet World 🐾</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="logo" href="#">🐾 MyPet <span>World</span></a>
+    <div class="wallet">🪙 <b id="coins">100</b> coins</div>
+  </header>
+
+  <main class="container">
+    <section class="welcome">
+      <div>
+        <p class="eyebrow">YOUR LITTLE HAPPY PLACE ✨</p>
+        <h1>A world full of <span>tiny paws.</span></h1>
+        <p>Adopt a bestie. Give them all your love! 💗</p>
+      </div>
+      <div class="welcome-pets">🐱 🐶</div>
+    </section>
+
+    <section class="pet-picker">
+      <div>
+        <h2>Choose your bestie 🐾</h2>
+        <p>Who would you like to adopt?</p>
+      </div>
+      <div class="pet-options">
+        <button class="pet-choice selected" data-pet="cat">🐱 Cat</button>
+        <button class="pet-choice" data-pet="dog">🐶 Dog</button>
+      </div>
+    </section>
+
+    <section class="game-layout">
+      <div class="pet-card">
+        <div class="room-label">🏡 YOUR COZY HOME</div>
+
+        <div class="room" id="room">
+          <div class="window">☀️<br>☁️</div>
+          <div class="plant">🪴</div>
+
+          <div class="pet-character">
+            <span id="wornAccessory"></span>
+            <span id="pet">🐱</span>
+          </div>
+
+          <div class="pet-name" id="petName">Mochi</div>
+          <div class="pet-mood" id="mood">💕 Feeling happy!</div>
+          <div class="speech" id="speech">Hi bestie! 💗</div>
+          <div class="room-decorations" id="roomDecorations"></div>
+          <div class="rug">〰️ 🧸 〰️</div>
+        </div>
+
+        <div class="name-area">
+          <label for="nameInput">Name your pet</label>
+          <div class="name-form">
+            <input id="nameInput" maxlength="16" placeholder="Enter a cute name">
+            <button id="nameBtn">Save</button>
+          </div>
+        </div>
+
+        <div class="name-area">
+          <label for="breed">Choose a breed</label>
+          <select id="breed">
+            <option value="default">Classic</option>
+            <option value="orange">Orange</option>
+            <option value="white">White</option>
+            <option value="gray">Gray</option>
+          </select>
+        </div>
+
+        <div class="name-area">
+          <label for="roomTheme">Decorate your room</label>
+          <select id="roomTheme">
+            <option value="pink">Pink dream 🌸</option>
+            <option value="lavender">Lavender sky 💜</option>
+            <option value="garden">Sunny garden 🌿</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="side-panel">
+        <div class="panel">
+          <h2>Pet status 💖</h2>
+          <p class="subtext">Your bestie needs your love!</p>
+
+          <div class="stat">
+            <div><span>🍓 Hunger</span><b id="hungerText">80%</b></div>
+            <div class="track"><div id="hungerBar" class="fill pink"></div></div>
+          </div>
+          <div class="stat">
+            <div><span>🥰 Happiness</span><b id="happinessText">85%</b></div>
+            <div class="track"><div id="happinessBar" class="fill purple"></div></div>
+          </div>
+          <div class="stat">
+            <div><span>⚡ Energy</span><b id="energyText">90%</b></div>
+            <div class="track"><div id="energyBar" class="fill yellow"></div></div>
+          </div>
+          <div class="stat">
+            <div><span>💗 Health</span><b id="healthText">100%</b></div>
+            <div class="track"><div id="healthBar" class="fill green"></div></div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h2>Care for your pet 🐾</h2>
+          <p class="subtext">Every little moment matters.</p>
+          <div class="action-grid">
+            <button class="action" data-action="feed">🍓<span>Feed</span></button>
+            <button class="action" data-action="play">🎾<span>Play</span></button>
+            <button class="action" data-action="sleep">😴<span>Sleep</span></button>
+            <button class="action" data-action="bath">🛁<span>Bath</span></button>
+          </div>
+          <p class="message" id="message">Your bestie is waiting! 🐾</p>
+        </div>
+
+        <div class="panel">
+          <h2>Dress up 🎀</h2>
+          <p class="subtext">Unlock cute accessories with coins.</p>
+          <div class="action-grid">
+            <button class="action" data-accessory="🎀">🎀<span>Bow · 10</span></button>
+            <button class="action" data-accessory="🧢">🧢<span>Cap · 15</span></button>
+            <button class="action" data-accessory="💐">💐<span>Flowers · 20</span></button>
+            <button class="action" data-accessory="💎">💎<span>Collar · 25</span></button>
+          </div>
+          <button class="shop-button" id="removeAccessory">Remove accessory</button>
+          <p class="message" id="accessoryMessage">Choose an accessory! 💕</p>
+        </div>
+
+        <div class="panel">
+          <h2>Little rewards 🎁</h2>
+          <button class="shop-button" id="treatBtn">🍪 Special treat · 15 coins</button>
+          <button class="shop-button" id="toyBtn">🧸 Cute toy · 25 coins</button>
+          <button class="shop-button" id="dailyGift">🎁 Claim daily gift · 30 coins</button>
+          <p class="inventory" id="inventory">Your goodies: none yet</p>
+        </div>
+        
+<div class="panel">
+  <h2>🏡 Furniture Shop</h2>
+  <p class="subtext">Make your pet's home extra cozy!</p>
+
+  <div class="furniture-grid">
+    <button class="furniture" data-furniture="🛏️" data-price="30">
+      <span>🛏️</span>
+      <b>Pet Bed</b>
+      <small>30 coins</small>
+    </button>
+
+    <button class="furniture" data-furniture="🧸" data-price="20">
+      <span>🧸</span>
+      <b>Teddy Toy</b>
+      <small>20 coins</small>
+    </button>
+
+    <button class="furniture" data-furniture="🌷" data-price="15">
+      <span>🌷</span>
+      <b>Flower Plant</b>
+      <small>15 coins</small>
+    </button>
+
+    <button class="furniture" data-furniture="🏠" data-price="50">
+      <span>🏠</span>
+      <b>Pet House</b>
+      <small>50 coins</small>
+    </button>
+  </div>
+
+  <p class="message" id="furnitureMessage">
+    Choose something cute for your room! 💕
+  </p>
+</div>
+      </div>
+    </section>
+
+    <footer>Made with 💗 for all pet lovers · MyPet World</footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
